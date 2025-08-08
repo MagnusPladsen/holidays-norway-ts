@@ -1,6 +1,6 @@
 {
   "name": "holidays-norway-ts",
-  "version": "1.1.2",
+  "version": "1.1.21",
   "description": "A small library to get norwegian holidays by any given year.",
   "main": "dist/index.ts",
   "types": "dist/index.d.ts",
@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gunnar2k/holidays-norway.git"
+    "url": "git+https://github.com/MagnusPladsen/holidays-norway-ts.git"
   },
   "author": "Magnus Pladsen",
   "license": "MIT",
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/gunnar2k/holidays-norway/issues"
+    "url": "https://github.com/MagnusPladsen/holidays-norway-ts/issues"
   },
-  "homepage": "https://github.com/gunnar2k/holidays-norway#readme",
+  "homepage": "https://github.com/MagnusPladsen/holidays-norway-ts#readme",
   "devDependencies": {
     "@jest/globals": "^30.0.5",
     "@types/jest": "^30.0.0",
