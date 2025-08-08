@@ -4,8 +4,11 @@
   "description": "A small library to get norwegian holidays by any given year.",
   "main": "dist/index.ts",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc --outDir dist",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -21,6 +24,7 @@
   },
   "homepage": "https://github.com/gunnar2k/holidays-norway#readme",
   "devDependencies": {
+    "@jest/globals": "^30.0.5",
     "@types/jest": "^30.0.0",
     "@types/node": "^20.11.0",
     "install": "^0.13.0",
