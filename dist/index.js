@@ -1,77 +1,85 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _moment = require('moment');
-
-var _moment2 = _interopRequireDefault(_moment);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var getEaster = function getEaster(year) {
-  var a = year % 19;
-  var b = Math.floor(year / 100);
-  var c = year % 100;
-  var d = Math.floor(b / 4);
-  var e = b % 4;
-  var f = Math.floor((b + 8) / 25);
-  var g = Math.floor((b - f + 1) / 3);
-  var h = (19 * a + b - d - g + 15) % 30;
-  var i = Math.floor(c / 4);
-  var k = c % 4;
-  var l = (32 + 2 * e + 2 * i - h - k) % 7;
-  var m = Math.floor((a + 11 * h + 22 * l) / 451);
-  var n0 = h + l + 7 * m + 114;
-  var n = Math.floor(n0 / 31) - 1;
-  var p = n0 % 31 + 1;
-  return new Date(year, n, p);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const date_fns_1 = require("date-fns");
+const getEaster = (year) => {
+    // Same calculation logic as before
+    const a = year % 19;
+    const b = Math.floor(year / 100);
+    const c = year % 100;
+    const d = Math.floor(b / 4);
+    const e = b % 4;
+    const f = Math.floor((b + 8) / 25);
+    const g = Math.floor((b - f + 1) / 3);
+    const h = (19 * a + b - d - g + 15) % 30;
+    const i = Math.floor(c / 4);
+    const k = c % 4;
+    const l = (32 + 2 * e + 2 * i - h - k) % 7;
+    const m = Math.floor((a + 11 * h + 22 * l) / 451);
+    const n0 = h + l + 7 * m + 114;
+    const n = Math.floor(n0 / 31) - 1;
+    const p = (n0 % 31) + 1;
+    return new Date(year, n, p);
 };
-
-exports.default = function (year) {
-  var easter = getEaster(year);
-  return [{
-    name: 'Palmesøndag',
-    date: (0, _moment2.default)(easter).subtract(7, 'days').format('YYYY-MM-DD')
-  }, {
-    name: 'Skjærtorsdag',
-    date: (0, _moment2.default)(easter).subtract(3, 'days').format('YYYY-MM-DD')
-  }, {
-    name: 'Langfredag',
-    date: (0, _moment2.default)(easter).subtract(2, 'days').format('YYYY-MM-DD')
-  }, {
-    name: '1. påskedag',
-    date: (0, _moment2.default)(easter).format('YYYY-MM-DD')
-  }, {
-    name: '2. påskedag',
-    date: (0, _moment2.default)(easter).add(1, 'days').format('YYYY-MM-DD')
-  }, {
-    name: 'Kristi Himmelsprettsdag',
-    date: (0, _moment2.default)(easter).add(39, 'days').format('YYYY-MM-DD')
-  }, {
-    name: '1. pinsedag',
-    date: (0, _moment2.default)(easter).add(49, 'days').format('YYYY-MM-DD')
-  }, {
-    name: '2. pinsedag',
-    date: (0, _moment2.default)(easter).add(50, 'days').format('YYYY-MM-DD')
-  }, {
-    name: 'Nyttårsdag',
-    date: (0, _moment2.default)().year(year).startOf('year').format('YYYY-MM-DD')
-  }, {
-    name: '1. mai',
-    date: (0, _moment2.default)().year(year).month('may').date(1).format('YYYY-MM-DD')
-  }, {
-    name: '17. mai',
-    date: (0, _moment2.default)().year(year).month('may').date(17).format('YYYY-MM-DD')
-  }, {
-    name: '1. juledag',
-    date: (0, _moment2.default)().year(year).month('december').date(25).format('YYYY-MM-DD')
-  }, {
-    name: '2. juledag',
-    date: (0, _moment2.default)().year(year).month('december').date(26).format('YYYY-MM-DD')
-  }, {
-    name: 'Nyttårsaften',
-    date: (0, _moment2.default)().year(year).month('december').date(31).format('YYYY-MM-DD')
-  }];
+exports.default = (year) => {
+    const easter = getEaster(year);
+    const baseDate = new Date(year, 0, 1);
+    return [
+        {
+            name: "Palmesøndag",
+            date: (0, date_fns_1.format)((0, date_fns_1.subDays)(easter, 7), "yyyy-MM-dd"),
+        },
+        {
+            name: "Skjærtorsdag",
+            date: (0, date_fns_1.format)((0, date_fns_1.subDays)(easter, 3), "yyyy-MM-dd"),
+        },
+        {
+            name: "Langfredag",
+            date: (0, date_fns_1.format)((0, date_fns_1.subDays)(easter, 2), "yyyy-MM-dd"),
+        },
+        {
+            name: "1. påskedag",
+            date: (0, date_fns_1.format)(easter, "yyyy-MM-dd"),
+        },
+        {
+            name: "2. påskedag",
+            date: (0, date_fns_1.format)((0, date_fns_1.addDays)(easter, 1), "yyyy-MM-dd"),
+        },
+        {
+            name: "Kristi Himmelsprettsdag",
+            date: (0, date_fns_1.format)((0, date_fns_1.addDays)(easter, 39), "yyyy-MM-dd"),
+        },
+        {
+            name: "1. pinsedag",
+            date: (0, date_fns_1.format)((0, date_fns_1.addDays)(easter, 49), "yyyy-MM-dd"),
+        },
+        {
+            name: "2. pinsedag",
+            date: (0, date_fns_1.format)((0, date_fns_1.addDays)(easter, 50), "yyyy-MM-dd"),
+        },
+        {
+            name: "Nyttårsdag",
+            date: (0, date_fns_1.format)((0, date_fns_1.startOfYear)(baseDate), "yyyy-MM-dd"),
+        },
+        {
+            name: "1. mai",
+            date: (0, date_fns_1.format)((0, date_fns_1.setMonth)((0, date_fns_1.setDate)(baseDate, 1), 4), "yyyy-MM-dd"),
+        },
+        {
+            name: "17. mai",
+            date: (0, date_fns_1.format)((0, date_fns_1.setMonth)((0, date_fns_1.setDate)(baseDate, 17), 4), "yyyy-MM-dd"),
+        },
+        {
+            name: "1. juledag",
+            date: (0, date_fns_1.format)((0, date_fns_1.setMonth)((0, date_fns_1.setDate)(baseDate, 25), 11), "yyyy-MM-dd"),
+        },
+        {
+            name: "2. juledag",
+            date: (0, date_fns_1.format)((0, date_fns_1.setMonth)((0, date_fns_1.setDate)(baseDate, 26), 11), "yyyy-MM-dd"),
+        },
+        {
+            name: "Nyttårsaften",
+            date: (0, date_fns_1.format)((0, date_fns_1.setMonth)((0, date_fns_1.setDate)(baseDate, 31), 11), "yyyy-MM-dd"),
+        },
+    ];
 };
+//# sourceMappingURL=index.js.map

@@ -2,24 +2,34 @@
   "name": "holidays-norway",
   "version": "1.1.0",
   "description": "A small library to get norwegian holidays by any given year.",
-  "main": "dist/index.js",
+  "main": "dist/index.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "babel index.js -o dist/index.js",
+    "build": "tsc",
     "test": "jest",
     "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gunnar2k/holidays-norway.git"
+    "url": "git+https://github.com/gunnar2k/holidays-norway.git"
   },
   "author": "Gunnar Fornes",
   "license": "MIT",
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/gunnar2k/holidays-norway/issues"
+  },
+  "homepage": "https://github.com/gunnar2k/holidays-norway#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "jest": "^23.6.0"
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20.11.0",
+    "install": "^0.13.0",
+    "jest": "^29.7.0",
+    "npm": "^11.5.2",
+    "ts-jest": "^29.4.1",
+    "typescript": "^5.3.3"
   },
   "dependencies": {
-    "moment": "^2.10.6"
+    "date-fns": "^4.1.0"
   }
 }

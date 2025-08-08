@@ -1,4 +1,4 @@
-A simple JavaScript library for listing the official holidays for Norway for any given year.  
+A simple JavaScript library for listing the official holidays for Norway for any given year.
 
 # Installation
 
@@ -7,7 +7,7 @@ A simple JavaScript library for listing the official holidays for Norway for any
 # Usage
 
 ```javascript
-import holidays from 'holidays-norway';
+import holidays from "holidays-norway";
 
 console.log(holidays(2015));
 ```
@@ -15,7 +15,7 @@ console.log(holidays(2015));
 …or using `require()`:
 
 ```javascript
-const holidays = require('holidays-norway').default;
+const holidays = require("holidays-norway").default;
 
 console.log(holidays(2015));
 ```
