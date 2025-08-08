@@ -2,12 +2,12 @@ A simple JavaScript library for listing the official holidays for Norway for any
 
 # Installation
 
-`npm install holidays-norway`
+`npm install holidays-norway-ts`
 
 # Usage
 
 ```javascript
-import holidays from "holidays-norway";
+import holidays from "holidays-norway-ts";
 
 console.log(holidays(2015));
 ```
@@ -15,7 +15,7 @@ console.log(holidays(2015));
 …or using `require()`:
 
 ```javascript
-const holidays = require("holidays-norway").default;
+const holidays = require("holidays-norway-ts").default;
 
 console.log(holidays(2015));
 ```
@@ -49,7 +49,7 @@ will output the holidays for 2015:
 
 # Author
 
-Gunnar Fornes <gunnarfornes@gmail.com>
+Gunnar Fornes <gunnarfornes@gmail.com> is the original author for this package. I (Magnus Pladsen) only forked this and added TypeScript support.
 
 # Credits
 
