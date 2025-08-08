@@ -1,6 +1,6 @@
 {
-  "name": "holidays-norway",
-  "version": "1.1.0",
+  "name": "holidays-norway-ts",
+  "version": "1.1.1",
   "description": "A small library to get norwegian holidays by any given year.",
   "main": "dist/index.ts",
   "types": "dist/index.d.ts",
@@ -10,7 +10,8 @@
   "scripts": {
     "build": "rm -rf dist && tsc --outDir dist",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepublishOnly": "npm run build && npm test"
   },
   "repository": {
     "type": "git",
